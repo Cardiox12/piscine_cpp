@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/10 02:58:52 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/10/10 02:59:21 by bbellavi         ###   ########.fr       */
+/*   Created: 2020/10/30 02:46:22 by bbellavi          #+#    #+#             */
+/*   Updated: 2020/10/30 03:17:04 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "PhoneBook.hpp"
 
-char to_upper(char c)
+int
+main()
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
-}
+    PhoneBook book;
 
-int		main(int argc, char *argv[])
-{
-	if (argc != 1)
-	{
-		for (int index = 1 ; index < argc ; index++)
-		{
-			for (char *s = argv[index] ; *s != '\0' ; s++)
-				std::cout << to_upper(*s);
-			std::cout << ' ';
-		}
-		std::cout << std::endl;
-	}
-	else
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	}
-	
-	return (0);
+    while (true){
+        std::string command;
+
+        std::cout << ">>> ";
+        std::cin >> command;
+
+        if (command == "ADD") {
+            Contact contact;
+
+            contact.askForInfos();
+            book.addContact(contact);
+        } 
+        else if (command == "SHOW") {
+            book.showBook();
+        } 
+    }
 }
