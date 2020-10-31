@@ -6,13 +6,14 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 03:09:57 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/10/30 03:16:03 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/10/31 23:24:19 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _PHONE_BOOK_HPP
 # define _PHONE_BOOK_HPP
 
+# include <array>
 # include "Contact.hpp"
 
 # define MAX_CONTACT 8
@@ -33,8 +34,8 @@ class PhoneBook
     searchContact();
 
     private:
+    std::array<Contact, MAX_CONTACT> contacts;
     
-    Contact contacts[MAX_CONTACT];
     int _index;
 };
 

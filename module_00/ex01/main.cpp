@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 02:46:22 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/10/30 03:17:04 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/10/31 23:49:00 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ main()
         } 
         else if (command == "SHOW") {
             book.showBook();
-        } 
+        }
+        else if (command == "EXIT") {
+            exit(0);
+        }
     }
+    return (0);
 }

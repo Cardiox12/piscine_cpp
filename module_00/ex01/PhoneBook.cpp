@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 02:58:43 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/10/30 03:16:20 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/10/31 23:43:02 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ PhoneBook::addContact(Contact contact){
         std::cout << "Error: Maximum contact exceeded" << std::endl;
     }
     else {
-        contacts[++_index] = contact; 
+        contacts[_index++] = contact;
     }
 }
 
