@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 03:09:57 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/11/01 03:14:49 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/11/01 02:29:46 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@
 # define MAX_FIELD_SIZE 10
 # define NB_COLUMNS 4
 # define COL_SEP '|'
+
+# define _Contact_to_array(index, contact) (    \
+    std::array<std::string, 4>{                 \
+        index,                                  \
+        contact.first_name,                     \
+        contact.last_name,                      \
+        contact.nickname                        \
+    }                                           \
+)
 
 class PhoneBook
 {
