@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 12:51:59 by bbellavi          #+#    #+#             */
-/*   Updated: 2020/12/25 15:23:03 by bbellavi         ###   ########.fr       */
+/*   Updated: 2020/12/29 15:55:36 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,26 @@ int		main(void)
 	ZombieEvent zevent;
 	Zombie		*current;
 
+	srand((unsigned)time(0));
 	zevent.setZombieType("random");
 	for (int _ = 0 ; _ < 10 ; _++){
 		current = zevent.randomChump();
-		current->advert();
+		zevent.announce(current);
 		delete current;
 	}
 
 	zevent.setZombieType("fixed");
 
 	current = zevent.newZombie("Mark");
-	current->advert();
+	zevent.announce(current);
 	delete current;
 
 	current = zevent.newZombie("Jeff");
-	current->advert();
+	zevent.announce(current);
 	delete current;
 
 	current = zevent.newZombie("Bill");
-	current->advert();
+	zevent.announce(current);
 	delete current;
 	return (0);
 }
