@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/03 21:11:00 by bbellavi          #+#    #+#             */
-/*   Updated: 2021/01/03 22:35:14 by bbellavi         ###   ########.fr       */
+/*   Updated: 2021/01/04 13:51:49 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,10 @@ int		main(int argc, char *argv[])
 
 		repl.replace();
 	}
+	else
+	{
+		std::cout << "Usage: ./replace filename s1 s2" << std::endl;
+		return (1);
+	}
+	return (0);
 }

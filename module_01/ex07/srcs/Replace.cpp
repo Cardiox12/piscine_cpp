@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/03 21:12:40 by bbellavi          #+#    #+#             */
-/*   Updated: 2021/01/04 00:01:21 by bbellavi         ###   ########.fr       */
+/*   Updated: 2021/01/04 13:50:02 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,11 @@ Replace::replace(void)
 	_file = std::ifstream{ _filename };
 	_outfile = std::ofstream{ outfilename };
 
-	std::cout << get_filename(_filename) << std::endl;
+	if (_s1 == "" || _s2 == "")
+	{
+		std::cerr << "String parameters must not be empty." << std::endl;
+		return (1);
+	}
 	if (!_file)
 	{
 		std::cerr << "Could not open file." << std::endl;
@@ -60,9 +64,8 @@ Replace::replace(void)
 		std::cerr << "Could not open outfile." << std::endl;
 		return (1);
 	}
-	while (_file)
+	while (std::getline(_file, line))
 	{
-		std::getline(_file, line);
 		str_replace(line, _s1, _s2);
 		_outfile << line << std::endl;
 	}
