@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 09:27:41 by bbellavi          #+#    #+#             */
-/*   Updated: 2021/01/08 13:15:38 by bbellavi         ###   ########.fr       */
+/*   Updated: 2021/01/10 01:53:36 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,16 @@ Fixed::printRawBits(void) const
 			std::cout << " ";
 	}
 	std::cout << std::endl;
+}
+
+float
+Fixed::toFloat(void) const
+{
+	return ((float)_raw_bits / (1 << _MAX_BITS));
+}
+
+int
+Fixed::toInt(void) const
+{
+	return ((_raw_bits >> 8));
 }
