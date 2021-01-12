@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 09:27:41 by bbellavi          #+#    #+#             */
-/*   Updated: 2021/01/10 01:53:36 by bbellavi         ###   ########.fr       */
+/*   Updated: 2021/01/12 14:45:14 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,31 @@
 
 Fixed::~Fixed()
 {
-
+	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed()
 {
+	std::cout << "Default constructor called" << std::endl;
 	setRawBits( 0 );
 }
 
 Fixed::Fixed(const int raw)
 {
+	std::cout << "Int constructor called" << std::endl;
 	setRawBits( raw );
 }
 
 Fixed::Fixed(const Fixed &cls)
 {
-	setRawBits( cls.getRawBits() );
+	std::cout << "Copy constructor called" << std::endl;
+	
+	*this = cls;
 }
 
 Fixed::Fixed(const float raw)
 {
+	std::cout << "Float constructor called" << std::endl;
 	float	b = raw * (pow(2, _MAX_BITS));
 	int		rb = roundf(b);
 
@@ -43,14 +48,28 @@ Fixed::Fixed(const float raw)
 std::ostream&
 operator<<(std::ostream &stream, const Fixed &cls)
 {
-	stream << cls.getRawBits() << std::endl;
+	int raw_bits = cls.getRawBits();
+
+	if ((char)raw_bits == 0)
+		stream << cls.toInt();
+	else
+		stream << cls.toFloat();
+
 	return (stream);
+}
+
+Fixed&
+Fixed::operator=(const Fixed &cls)
+{
+	std::cout << "Assignation operator called" << std::endl;
+	_raw_bits = cls.getRawBits();
+
+	return (*this);
 }
 
 void
 Fixed::setRawBits(const int raw)
 {
-	// Use power of two because shift loss info
 	_raw_bits = (raw << _MAX_BITS);
 }
 

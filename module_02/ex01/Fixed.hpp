@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 09:27:43 by bbellavi          #+#    #+#             */
-/*   Updated: 2021/01/10 01:50:09 by bbellavi         ###   ########.fr       */
+/*   Updated: 2021/01/12 14:40:22 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ public:
 	~Fixed();
 
 	friend	std::ostream&	operator<<(std::ostream &stream, const Fixed &cls);
+	Fixed&					operator=(const Fixed &cls);
 
 	void	setRawBits(const int raw);
 	int		getRawBits(void) const;
