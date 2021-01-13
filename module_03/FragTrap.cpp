@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 15:42:24 by bbellavi          #+#    #+#             */
-/*   Updated: 2021/01/12 20:23:39 by bbellavi         ###   ########.fr       */
+/*   Updated: 2021/01/13 19:57:43 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 
 FragTrap::~FragTrap(void)
 {
-	std::cout	<< "Argh arghargh death gurgle gurglegurgle urgh... death."
-				<< std::endl;
+	std::cout << getRandomQuote(QTYPE_DEATH) << std::endl;
 }
 
 FragTrap::FragTrap()
 {
-	std::cout << "I'm now alive Yeee-hay!" << std::endl;
+	std::cout << getRandomQuote(QTYPE_BORN) << std::endl;
 	_name = FRAG_TRAP_INITIALIZER;
 }
 
 FragTrap::FragTrap(std::string name)
 {
-	std::cout << "I'm now alive Yeee-hay!" << std::endl;
+	std::cout << getRandomQuote(QTYPE_BORN) << std::endl;
 	_name = name;
 }
 
@@ -46,8 +45,15 @@ FragTrap::FragTrap(const FragTrap &cls)
 FragTrap&
 FragTrap::operator=(const FragTrap &cls)
 {
-	*this = cls;
-
+	_hit_points = cls._hit_points;
+	_max_hit_points = cls._max_hit_points;
+	_energy_points = cls._energy_points;
+	_max_energy_points = cls._max_energy_points;
+	_level = cls._level;
+	_name = cls._name;
+	_melee_attack_damage = cls._melee_attack_damage;
+	_ranged_attack_damage = cls._ranged_attack_damage;
+	_armor_attack_reduction = cls._armor_attack_reduction;
 	return (*this);
 }
 
@@ -61,6 +67,7 @@ void
 FragTrap::meleeAttack(std::string const &target) const
 {
 	printAttackMessage(_name, target, "melee", _melee_attack_damage);
+	std::cout << getRandomQuote(QTYPE_MELEE) << std::endl;
 }
 
 void
@@ -72,32 +79,49 @@ FragTrap::takeDamage(unsigned int amount)
 		_hit_points = true_hit_points - amount;
 	else
 		_hit_points = 0;
-	std::cout << "Ho no, my life if " << _hit_points << std::endl;
+	std::cout << "<" << _name << ">";
+	std::cout << " : Hit by " << amount << " damages" << std::endl;
+	if (_hit_points < 20)
+		std::cout << getRandomQuote(QTYPE_CRITIC_HIT) << std::endl;
 }
 
 void
 FragTrap::beRepaired(unsigned int amount)
 {
-	if (_hit_points + amount < _max_hit_points)
+	if ((_hit_points + (int)amount) < _max_hit_points)
 		_hit_points += amount;
 	else
-		_hit_points = _hit_points;
-	std::cout << "Hell yes, I'm ready to rock with " << _hit_points << " HP!" << std::endl;
+		_hit_points = _max_hit_points;
+	std::cout << "<" << _name << ">";
+	std::cout << " : Received " << amount << "HP" << std::endl;
 }
 
-// Private
-
-// int
-// FragTrap::getRandomIndex(unsigned int max) const
+// void
+// FragTrap::vaulthunter_dot_exe(std::string const &target)
 // {
 	
 // }
 
+// Private
+
+std::string
+FragTrap::getRandomQuote(unsigned int type) const
+{
+	std::vector<std::string> quotes = g_all_quotes[type];
+	
+	return (quotes[getRandomIndex(quotes.size())]);
+}
+
+int
+FragTrap::getRandomIndex(unsigned int max) const
+{
+	return (std::rand() % max);
+}
+
 void
 FragTrap::printAttackMessage(std::string name, std::string target, std::string type, unsigned int damage) const
 {
-	std::cout	<< "FR4G-TP " 
-				<< "<" << name << ">"
+	std::cout	<< "<" << name << ">"
 				<< " attacks "
 				<< "<" << target << ">"
 				<< " at " << type << ", "
