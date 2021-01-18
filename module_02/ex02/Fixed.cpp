@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 09:27:41 by bbellavi          #+#    #+#             */
-/*   Updated: 2021/01/18 17:58:11 by bbellavi         ###   ########.fr       */
+/*   Updated: 2021/01/18 18:00:58 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Fixed::Fixed(const Fixed &cls)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	
-	*this = cls;
+	_raw_bits = cls.getRawBits();
 }
 
 Fixed::Fixed(const float raw)

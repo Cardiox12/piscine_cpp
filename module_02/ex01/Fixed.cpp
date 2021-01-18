@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 09:27:41 by bbellavi          #+#    #+#             */
-/*   Updated: 2021/01/12 14:45:14 by bbellavi         ###   ########.fr       */
+/*   Updated: 2021/01/18 17:59:50 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ Fixed::operator=(const Fixed &cls)
 void
 Fixed::setRawBits(const int raw)
 {
-	_raw_bits = (raw << _MAX_BITS);
+	_raw_bits = raw;
 }
 
 int
