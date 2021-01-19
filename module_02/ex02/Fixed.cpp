@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 09:27:41 by bbellavi          #+#    #+#             */
-/*   Updated: 2021/01/18 18:00:58 by bbellavi         ###   ########.fr       */
+/*   Updated: 2021/01/19 16:52:52 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,5 +152,13 @@ Fixed::operator*(const Fixed &other)
 {
 	int result = ((_raw_bits * other.getRawBits() >> _MAX_BITS));
 	
+	return (Fixed{ result });
+}
+
+Fixed
+Fixed::operator/(const Fixed &other)
+{
+	int result = ((_raw_bits * (1 << _MAX_BITS)) / other.getRawBits());
+
 	return (Fixed{ result });
 }

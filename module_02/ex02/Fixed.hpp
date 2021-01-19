@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 09:27:43 by bbellavi          #+#    #+#             */
-/*   Updated: 2021/01/18 17:20:44 by bbellavi         ###   ########.fr       */
+/*   Updated: 2021/01/18 18:06:54 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ public:
 
 	// Arithmetic
 	Fixed					operator*(const Fixed &other);
-	// Fixed					operator/(const Fixed &other);
+	Fixed					operator/(const Fixed &other);
 	// Fixed					operator+(const Fixed &other);
 	// Fixed					operator-(const Fixed &other);
 
