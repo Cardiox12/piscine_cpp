@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 09:27:43 by bbellavi          #+#    #+#             */
-/*   Updated: 2021/01/18 18:06:54 by bbellavi         ###   ########.fr       */
+/*   Updated: 2021/01/19 17:52:39 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ public:
 	// Arithmetic
 	Fixed					operator*(const Fixed &other);
 	Fixed					operator/(const Fixed &other);
-	// Fixed					operator+(const Fixed &other);
-	// Fixed					operator-(const Fixed &other);
+	Fixed					operator+(const Fixed &other);
+	Fixed					operator-(const Fixed &other);
 
 	void	setRawBits(const int raw);
 	int		getRawBits(void) const;
