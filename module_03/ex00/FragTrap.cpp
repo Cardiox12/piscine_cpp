@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 15:42:24 by bbellavi          #+#    #+#             */
-/*   Updated: 2021/02/03 00:37:30 by bbellavi         ###   ########.fr       */
+/*   Updated: 2021/02/03 22:56:38 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,8 @@ FragTrap::beRepaired(unsigned int amount)
 void
 FragTrap::vaulthunter_dot_exe(std::string const &target) const
 {
-	int index = getRandomIndex(5);
-	int damage = getRandomIndex(50);
+	int index = getRandomNumber(5);
+	int damage = getRandomNumber(50);
 
 	std::cout << getRandomQuote(QTYPE_VAULT_EXE_ACTIVATED) << std::endl;
 	printAttackMessage(_name, target, g_vh_attacks[index], damage);
@@ -111,13 +111,13 @@ FragTrap::vaulthunter_dot_exe(std::string const &target) const
 std::string
 FragTrap::getRandomQuote(unsigned int type) const
 {
-	int randomIndex = getRandomIndex(g_all_quotes_sizes[type]);
+	int randomIndex = getRandomNumber(g_all_quotes_sizes[type]);
 	
 	return (g_all_quotes[type][randomIndex]);
 }
 
 int
-FragTrap::getRandomIndex(unsigned int max) const
+FragTrap::getRandomNumber(unsigned int max) const
 {
 	return (std::rand() % max);
 }

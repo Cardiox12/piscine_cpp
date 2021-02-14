@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 15:42:26 by bbellavi          #+#    #+#             */
-/*   Updated: 2021/02/03 00:38:42 by bbellavi         ###   ########.fr       */
+/*   Updated: 2021/02/03 22:56:28 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ private:
 	int				_ranged_attack_damage = 20;
 	int				_armor_attack_reduction = 5;
 
-	int			getRandomIndex(unsigned int max) const;
+	int			getRandomNumber(unsigned int max) const;
 	std::string	getRandomQuote(unsigned int type) const;
 	void		printAttackMessage(std::string name, std::string target, std::string type, unsigned int damage) const;
 public:
