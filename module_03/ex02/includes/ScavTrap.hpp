@@ -15,20 +15,12 @@
 
 # include <string>
 # include <iostream>
+#include "ClapTrap.hpp"
 
 # define CHALLENGES_SIZE 4
 
-class ScavTrap
+class ScavTrap : public ClapTrap
 {
-private:
-	int				_hit_points = 100;
-	int				_max_hit_points = 100;
-	int				_energy_points = 50;
-	int				_level = 1;
-	std::string		_name;
-	int				_melee_attack_damage = 20;
-	int				_ranged_attack_damage = 15;
-	int				_armor_damage_reduction = 3;
 	std::string		_challenges[CHALLENGES_SIZE] = {
 		"Destroy the World",
 		"Destroy all enemies",
@@ -42,14 +34,10 @@ public:
 	ScavTrap();
 	ScavTrap(std::string name);
 	ScavTrap(const ScavTrap &other);
-	~ScavTrap();
+	virtual ~ScavTrap();
 
 	ScavTrap	&operator=(const ScavTrap &other);
 
-	void		rangedAttack(std::string const &target) const;
-	void		meleeAttack(std::string const &target) const;
-	void		takeDamage(unsigned int amount);
-	void		beRepaired(unsigned int amount);
 	void		challengeNewcomer(void);
 };
 

@@ -10,30 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "../includes/ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() : ClapTrap()
 {
-	std::cout << "Default constructor" << std::endl;
-	_name = std::string{ "unknow" };
+    std::cout << "ScavTrap Default constructor" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "Parameter constructor" << std::endl;
-	_name = std::string{ name };
+    std::cout << "ScavTrap Parameter constructor" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &other)
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
 {
-	_hit_points = other._hit_points;
-	_max_hit_points = other._max_hit_points;
-	_energy_points = other._energy_points;
-	_level = other._level;
-	_name = other._name;
-	_melee_attack_damage = other._melee_attack_damage;
-	_ranged_attack_damage = other._ranged_attack_damage;
-	_armor_damage_reduction = other._armor_damage_reduction;
+    std::cout << "ScavTrap Copy constructor" << std::endl;
 }
 
 ScavTrap::~ScavTrap()
@@ -67,39 +58,6 @@ ScavTrap::challengeNewcomer(void)
 	std::cout << "ScavTrap: " << _name << " challenge set to [ " << challenge << " ]" << std::endl;
 }
 
-void
-ScavTrap::rangedAttack(std::string const &target) const
-{
-	std::cout << "ScavTrap: " << _name << " ranged attack [ " << target << " ]" << std::endl;
-}
-
-void
-ScavTrap::meleeAttack(std::string const &target) const
-{
-	std::cout << "ScavTrap: " << _name << " melee attack [ " << target << " ]" << std::endl;
-}
-
-void
-ScavTrap::takeDamage(unsigned int amount)
-{
-	int true_hit_points = _hit_points + _armor_damage_reduction;
-
-	if (true_hit_points - amount >= 0)
-		_hit_points = true_hit_points - amount;
-	else
-		_hit_points = 0;
-	std::cout << "ScavTrap: " << _name << " received " << amount << " damages" << std::endl;
-}
-
-void
-ScavTrap::beRepaired(unsigned int amount)
-{
-	if ((_hit_points + (int)amount) < _max_hit_points)
-		_hit_points += amount;
-	else
-		_hit_points = _max_hit_points;
-	std::cout << "ScavTrap: " << _name << " received " << amount << " HP" << std::endl;
-}
 
 /* Private ------------------------------------------------------------------ */
 
