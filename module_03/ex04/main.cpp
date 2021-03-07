@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   SuperTrap.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/07 04:17:41 by bbellavi          #+#    #+#             */
-/*   Updated: 2021/03/07 05:34:03 by bbellavi         ###   ########.fr       */
+/*   Created: 2021/03/07 04:17:04 by bbellavi          #+#    #+#             */
+/*   Updated: 2021/03/07 05:38:46 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SUPERTRAP_H
-#define SUPERTRAP_H
-
+#include "ClapTrap.hpp"
 #include "FragTrap.hpp"
-#include "NinjaTrap.hpp"
+#include "SuperTrap.hpp"
 
-class SuperTrap : public FragTrap, public NinjaTrap {
-public:
-	SuperTrap();
-	SuperTrap(std::string name);
-	SuperTrap(const SuperTrap &cls);
-	SuperTrap	&operator=(const SuperTrap &cls);
-	virtual		~SuperTrap();
+int	main(void)
+{
+	SuperTrap strap{ "tony" };
+	SuperTrap strap2;
+	FragTrap ennemy{ "eithan" };
 
-};
+	// Testing two special methods
+	strap.ninjaShoebox(ennemy);
+	strap.vaulthunter_dot_exe(ennemy.getName());
 
-
-#endif //SUPERTRAP_H
+	// Copy strap and test it
+	strap2 = strap;
+	strap2.ninjaShoebox(ennemy);
+	return (0);
+}

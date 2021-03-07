@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   SuperTrap.hpp                                      :+:      :+:    :+:   */
+/*   NinjaTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/07 04:17:41 by bbellavi          #+#    #+#             */
-/*   Updated: 2021/03/07 05:34:03 by bbellavi         ###   ########.fr       */
+/*   Created: 2021/03/07 04:17:50 by bbellavi          #+#    #+#             */
+/*   Updated: 2021/03/07 05:07:55 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SUPERTRAP_H
-#define SUPERTRAP_H
+#ifndef NINJA_TRAP_H
+#define NINJA_TRAP_H
 
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 #include "FragTrap.hpp"
-#include "NinjaTrap.hpp"
 
-class SuperTrap : public FragTrap, public NinjaTrap {
+class NinjaTrap : public virtual ClapTrap {
 public:
-	SuperTrap();
-	SuperTrap(std::string name);
-	SuperTrap(const SuperTrap &cls);
-	SuperTrap	&operator=(const SuperTrap &cls);
-	virtual		~SuperTrap();
+    NinjaTrap();
+    NinjaTrap(std::string name);
+    NinjaTrap(const NinjaTrap &other) : ClapTrap(other) {};
+    virtual ~NinjaTrap();
 
+    void ninjaShoebox(ClapTrap &enemy);
+    void ninjaShoebox(ScavTrap &enemy);
+    void ninjaShoebox(FragTrap &enemy);
 };
 
 
-#endif //SUPERTRAP_H
+#endif //EX03_NINJATRAP_H
