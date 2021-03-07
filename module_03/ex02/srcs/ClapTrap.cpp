@@ -81,3 +81,7 @@ ClapTrap::getRandomNumber(unsigned int max) const
 {
     return (std::rand() % max);
 }
+
+const std::string &ClapTrap::getName() const {
+    return _name;
+}

@@ -16,13 +16,26 @@ FragTrap::FragTrap() : ClapTrap()
 {
     std::cout << "FragTrap Default constructor" << std::endl;
 	std::cout << getRandomQuote(QTYPE_BORN) << std::endl;
-	_name = FRAG_TRAP_INITIALIZER;
+    _hit_points = 100;
+    _max_hit_points = 100;
+    _energy_points = 100;
+    _max_energy_points = 100;
+    _melee_attack_damage = 30;
+    _ranged_attack_damage = 20;
+    _armor_damage_reduction = 5;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
     std::cout << "FragTrap Parameter constructor" << std::endl;
 	std::cout << getRandomQuote(QTYPE_BORN) << std::endl;
+    _hit_points = 100;
+    _max_hit_points = 100;
+    _energy_points = 100;
+    _max_energy_points = 100;
+    _melee_attack_damage = 30;
+    _ranged_attack_damage = 20;
+    _armor_damage_reduction = 5;
 }
 
 FragTrap::FragTrap(const FragTrap &cls) : ClapTrap(cls)

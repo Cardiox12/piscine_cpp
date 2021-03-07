@@ -15,11 +15,28 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
     std::cout << "ScavTrap Default constructor" << std::endl;
+    _hit_points = 100;
+    _max_hit_points = 100;
+    _energy_points = 50;
+    _max_energy_points = 50;
+    _level = 1;
+    _name = std::string{ "unknown" };
+    _melee_attack_damage = 20;
+    _ranged_attack_damage = 15;
+    _armor_damage_reduction = 3;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
     std::cout << "ScavTrap Parameter constructor" << std::endl;
+    _hit_points = 100;
+    _max_hit_points = 100;
+    _energy_points = 50;
+    _max_energy_points = 50;
+    _level = 1;
+    _melee_attack_damage = 20;
+    _ranged_attack_damage = 15;
+    _armor_damage_reduction = 3;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
