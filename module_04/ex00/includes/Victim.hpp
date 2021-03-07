@@ -16,7 +16,7 @@ public:
     Victim  &operator=(const Victim &other);
     virtual ~Victim();
 
-    void    getPolymorphed() const;
+    virtual void    getPolymorphed() const;
 
 //    Getters and Setters
     const std::string &getName() const;
