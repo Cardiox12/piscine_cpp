@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 23:13:16 by bbellavi          #+#    #+#             */
-/*   Updated: 2021/02/18 23:14:00 by bbellavi         ###   ########.fr       */
+/*   Updated: 2021/03/07 04:11:12 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,22 @@ protected:
     int				_max_energy_points;
     unsigned int	_level = 1;
     std::string		_name;
-public:
-    const std::string &getName() const;
+	int				_melee_attack_damage;
+	int				_ranged_attack_damage;
+	int				_armor_damage_reduction;
+	int			getRandomNumber(unsigned int max) const;
 
-protected:
-    int				_melee_attack_damage;
-    int				_ranged_attack_damage;
-    int				_armor_damage_reduction;
-
-    int			getRandomNumber(unsigned int max) const;
 public:
 	ClapTrap();
 	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap &other);
 	virtual ~ClapTrap();
 
-    void		rangedAttack(std::string const &target) const;
-    void		meleeAttack(std::string const &target) const;
-    void		takeDamage(unsigned int amount);
-    void		beRepaired(unsigned int amount);
+	const		std::string &getName() const;
+	void		rangedAttack(std::string const &target) const;
+	void		meleeAttack(std::string const &target) const;
+	void		takeDamage(unsigned int amount);
+	void		beRepaired(unsigned int amount);
 };
 
 #endif
