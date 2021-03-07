@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <string>
+#include "../includes/Victim.hpp"
 
 class Sorcerer {
     std::string m_name;
@@ -16,6 +17,10 @@ public:
     Sorcerer(std::string name, std::string title);
     Sorcerer(const Sorcerer &other);
     Sorcerer    &operator=(const Sorcerer &other);
+
+    void    polymorph(const Victim &victim) const;
+
+//    Getters and Setters
 
     const std::string &getName() const;
     void setName(const std::string &name);
