@@ -5,6 +5,7 @@
 #ifndef MAIN_AWEAPON_HPP
 #define MAIN_AWEAPON_HPP
 
+#include <iostream>
 #include <string>
 
 class AWeapon {
@@ -15,17 +16,17 @@ public:
     AWeapon();
     AWeapon(const std::string &name, int cost, int damage);
     AWeapon(const AWeapon &other);
-    AWeapon &operator=(const AWeapon &other);
-    virtual ~AWeapon();
+    virtual             ~AWeapon();
+    AWeapon             &operator=(const AWeapon &other);
 
-    virtual void attack() const = 0;
+    virtual void        attack() const = 0;
 
-    const std::string &getName() const;
-    void setName(const std::string &mName);
-    int getDamage() const;
-    void setDamage(int mDamage);
-    int getCost() const;
-    void setCost(int mCost);
+    const std::string   &getName() const;
+    void                setName(const std::string &mName);
+    int                 getDamage() const;
+    void                setDamage(int mDamage);
+    int                 getCost() const;
+    void                setCost(int mCost);
 };
 
 

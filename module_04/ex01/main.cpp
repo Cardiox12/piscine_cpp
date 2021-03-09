@@ -2,11 +2,12 @@
 // Created by kyoto on 09/03/2021.
 //
 
-#include <iostream>
+#include "includes/PlasmaRifle.hpp"
 
 int     main()
 {
-    std::cout << "Tony Bellavia" << std::endl;
+    PlasmaRifle weapon;
 
+    weapon.attack();
     return (0);
 }
