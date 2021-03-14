@@ -5,18 +5,30 @@
 #include "includes/PlasmaRifle.hpp"
 #include "includes/SuperMutant.hpp"
 #include "includes/RadScorpion.hpp"
+#include "includes/PowerFist.hpp"
+#include "includes/Character.hpp"
 
 int     main()
 {
-    PlasmaRifle weapon;
-    SuperMutant mutant;
-    RadScorpion scorpion;
+    auto *me = new Character("me");
 
-    weapon.attack();
-    mutant.takeDamage(10 );
-    scorpion.takeDamage( 10 );
+    std::cout << *me;
 
-    std::cout << "Mutant hp : " << mutant.getHP() << std::endl;
-    std::cout << "Scorpion hp : " << scorpion.getHP() << std::endl;
+    Enemy *b = new RadScorpion();
+    AWeapon *pr = new PlasmaRifle();
+    AWeapon *pf = new PowerFist();
+
+    me->equip(pr);
+    std::cout << *me;
+    me->equip(pf);
+    me->attack(b);
+    std::cout << *me;
+    me->equip(pr);
+    std::cout << *me;
+    me->attack(b);
+    std::cout << *me;
+    me->attack(b);
+    std::cout << *me;
+
     return (0);
 }
