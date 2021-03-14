@@ -3,11 +3,14 @@
 //
 
 #include "includes/PlasmaRifle.hpp"
+#include "includes/SuperMutant.hpp"
 
 int     main()
 {
     PlasmaRifle weapon;
+    SuperMutant mutant;
 
     weapon.attack();
+    mutant.takeDamage(10);
     return (0);
 }
