@@ -10,7 +10,6 @@
 struct Unit {
     ISpaceMarine    *m_marine;
     Unit            *m_next;
-    Unit    &operator=(const Unit *other);
 };
 
 class Squad : public ISquad {
@@ -21,7 +20,6 @@ public:
     Squad(const Squad &other);
     Squad &operator=(const Squad &other);
     virtual ~Squad();
-
     int getCount() const override;
     ISpaceMarine * getUnit(int index) const override;
     int push(ISpaceMarine *marine) override;
