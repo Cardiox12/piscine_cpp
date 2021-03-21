@@ -8,10 +8,36 @@
 Squad::Squad() : m_units{ 0 }, m_squad{ nullptr } {}
 
 Squad::Squad(const Squad &other) {
+    for ( int i = 0 ; i < other.getCount() ; i++ ){
+        ISpaceMarine *marine = other.getUnit( i );
 
+        push( marine->clone() );
+    }
 }
 
 Squad &Squad::operator=(const Squad &other) {
+//    Destroy own squad and deep copy
+
+    if ( m_units == 1 ){
+        delete m_squad;
+    } else {
+        Unit *unit = m_squad;
+        Unit *tmp;
+
+        while ( unit != nullptr ){
+            tmp = unit->m_next;
+            delete unit->m_marine;
+            delete unit;
+            unit = tmp;
+        }
+    }
+
+    for ( int i = 0 ; i < other.getCount() ; i++ ){
+        ISpaceMarine *marine = other.getUnit( i );
+
+        push( marine->clone() );
+    }
+
     return *this;
 }
 

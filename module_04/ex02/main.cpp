@@ -26,6 +26,19 @@ int main()
         cur->meleeAttack();
         std::cout << "==========================================" << std::endl;
     }
+
+    ISquad *suicide_squad = vlc;
+
+    for (int i = 0; i < suicide_squad->getCount(); ++i)
+    {
+        ISpaceMarine *cur = suicide_squad->getUnit(i);
+
+        cur->battleCry();
+        cur->rangedAttack();
+        cur->meleeAttack();
+        std::cout << "==========================================" << std::endl;
+    }
+
     delete vlc;
 
     return 0;
