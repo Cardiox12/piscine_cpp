@@ -15,6 +15,18 @@ Squad::Squad(const Squad &other) {
     }
 }
 
+Squad::~Squad() {
+	Unit *unit = m_squad;
+	Unit *tmp;
+
+	while ( unit != nullptr ){
+		tmp = unit->m_next;
+		delete unit->m_marine;
+		delete unit;
+		unit = tmp;
+	}
+}
+
 Squad &Squad::operator=(const Squad &other) {
 //    Destroy own squad and deep copy
 
@@ -40,8 +52,6 @@ Squad &Squad::operator=(const Squad &other) {
 
     return *this;
 }
-
-Squad::~Squad() {}
 
 int Squad::getCount() const {
     return m_units;

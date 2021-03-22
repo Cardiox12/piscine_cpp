@@ -9,7 +9,7 @@ AssaultTerminator::AssaultTerminator() {
     std::cout << "* teleports from space *" << std::endl;
 }
 
-AssaultTerminator::AssaultTerminator(const AssaultTerminator &other) {}
+AssaultTerminator::AssaultTerminator(const AssaultTerminator &other) { (void)other; }
 
 AssaultTerminator::~AssaultTerminator() {
     std::cout << "I’ll be back..." << std::endl;
