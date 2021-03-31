@@ -15,9 +15,10 @@ class Character : public ICharacter {
     AMateria    *m_inventory[INVENTORY_SIZE];
     int         m_cursor;
 public:
-    Character(std::string &name);
+    Character(const std::string &name);
     Character(Character &other);
     Character &operator=(Character &other);
+    virtual ~Character();
 
     void equip(AMateria *materia) override;
     const std::string & getName() const override;

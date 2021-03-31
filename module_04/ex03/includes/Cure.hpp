@@ -5,6 +5,7 @@
 #ifndef EX03_CURE_HPP
 #define EX03_CURE_HPP
 
+#include <iostream>
 #include <string>
 #include "AMateria.hpp"
 

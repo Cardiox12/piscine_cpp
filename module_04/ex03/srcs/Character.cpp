@@ -4,15 +4,17 @@
 
 #include "Character.hpp"
 
-Character::Character(std::string &name) :
-    m_name( name ), m_cursor( 0 ), m_inventory{ nullptr, nullptr, nullptr, nullptr } { }
+Character::Character(const std::string &name) :
+    m_name( name ), m_inventory{ nullptr, nullptr, nullptr, nullptr }, m_cursor( 0 ) { }
 
 Character::Character(Character &other) {
+    m_cursor = other.m_cursor;
     m_name = other.getName();
     setInventory( other.getInventory() );
 }
 
 Character &Character::operator=(Character &other) {
+    m_cursor = other.m_cursor;
     m_name = other.getName();
     setInventory( other.getInventory() );
 
@@ -47,15 +49,15 @@ AMateria **Character::getInventory() {
 
 void Character::setInventory(AMateria **inventory) {
     for ( int i = 0 ; i < INVENTORY_SIZE ; i++ ){
-        if ( m_inventory[i] ){
-            delete m_inventory[i];
-        }
+        delete m_inventory[i];
     }
     for ( int i = 0 ; i < INVENTORY_SIZE ; i++ ){
         m_inventory[i] = (inventory[i]) ? inventory[i]->clone() : nullptr;
     }
 }
 
-void Character::setName(std::string &name) {
-    m_name = name;
+Character::~Character() {
+    for ( int i = 0 ; i < INVENTORY_SIZE ; i++ ){
+        delete m_inventory[i];
+    }
 }

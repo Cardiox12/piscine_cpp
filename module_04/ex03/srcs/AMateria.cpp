@@ -4,9 +4,9 @@
 
 #include "../includes/AMateria.hpp"
 
-AMateria::AMateria(const std::string &type) : m_type{ type }, m_xp{ 0 } {}
+AMateria::AMateria(const std::string &type) : m_xp{ 0 }, m_type{ type } {}
 
-AMateria::AMateria(const AMateria &other) : m_type{ other.getType() }, m_xp{ other.getXP() } {}
+AMateria::AMateria(const AMateria &other) : m_xp{ other.getXP() }, m_type{ other.getType() } {}
 
 AMateria &AMateria::operator=(const AMateria &other) {
     m_type = other.getType();
@@ -26,5 +26,6 @@ unsigned int AMateria::getXP() const {
 }
 
 void AMateria::use(ICharacter &target) {
+    (void)target;
     m_xp += 10;
 }
