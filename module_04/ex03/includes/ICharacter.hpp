@@ -4,9 +4,11 @@
 #include <string>
 #include <array>
 
+#include "AMateria.hpp"
+
+class AMateria;
+
 class ICharacter {
-	std::string					m_name;
-	std::array<AMateria*, 4>	m_materias;
 public:
 	ICharacter();
 	virtual ~ICharacter();
