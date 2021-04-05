@@ -26,10 +26,10 @@ public:
     const std::string &getName() const;
     int getGrade() const;
 
-    struct GradeTooLow : public std::exception {
+    struct GradeTooLowException : public std::exception {
         virtual const char *what() const throw();
     };
-    struct GradeTooHigh : public std::exception {
+    struct GradeTooHighException : public std::exception {
         virtual const char *what() const throw();
     };
 };

@@ -19,10 +19,10 @@ Bureaucrat::~Bureaucrat() {
 
 void Bureaucrat::isGradeValid(int grade) const {
     if ( grade < MAX_GRADE ){
-        throw GradeTooHigh();
+        throw GradeTooHighException();
     }
     if ( grade > MIN_GRADE ){
-        throw GradeTooLow();
+        throw GradeTooLowException();
     }
 }
 
@@ -59,11 +59,11 @@ void Bureaucrat::decGrade() {
     m_grade++;
 }
 
-const char *Bureaucrat::GradeTooHigh::what() const throw() {
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
     return "Grade too high";
 }
 
-const char *Bureaucrat::GradeTooLow::what() const throw() {
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
     return "Grade too low";
 }
 
