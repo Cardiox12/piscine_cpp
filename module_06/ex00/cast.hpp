@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 06:06:51 by bbellavi          #+#    #+#             */
-/*   Updated: 2021/06/02 23:47:32 by bbellavi         ###   ########.fr       */
+/*   Updated: 2021/06/18 16:26:33 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 #define CAST_HPP
 
 #include <iostream>
-#include <limits>
+#include <limits.h>
 #include <ctype.h>
 #include <cmath>
+#include <float.h>
 
 #define CAST_N_FN 4
 typedef void(*cast_fn)(double);

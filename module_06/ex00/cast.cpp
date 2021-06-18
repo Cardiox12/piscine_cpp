@@ -6,7 +6,7 @@
 /*   By: bbellavi <bbellavi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 06:09:17 by bbellavi          #+#    #+#             */
-/*   Updated: 2021/06/03 00:29:58 by bbellavi         ###   ########.fr       */
+/*   Updated: 2021/06/18 16:32:56 by bbellavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static bool is_round(float n){
 }
 
 void char_cast(double x){
-	if ( x < std::numeric_limits<char>::min() || x > std::numeric_limits<char>::max() || isnanl(x) ){
+	if ( x < CHAR_MIN || x > CHAR_MAX || isnanl(x) ){
 		std::cout << "char: impossible" << std::endl;
 	} else {
 		char c = static_cast<char>( x );
@@ -31,7 +31,7 @@ void char_cast(double x){
 }
 
 void int_cast(double x){
-	if ( x < std::numeric_limits<int>::min() || x > std::numeric_limits<int>::max() || isnanl(x) ){
+	if ( x < INT_MIN || x > INT_MAX || isnanl(x) ){
 		std::cout << "int: impossible" << std::endl;
 	} else {
 		int i = static_cast<int>( x );
@@ -41,7 +41,7 @@ void int_cast(double x){
 }
 
 void float_cast(double x){
-	if ( x < std::numeric_limits<float>::lowest() || x > std::numeric_limits<float>::max() ){
+	if ( x < -FLT_MAX || x > FLT_MAX ){
 		std::cout << "float: impossible" << std::endl;
 	} else {
 		float f = static_cast<float>( x );
